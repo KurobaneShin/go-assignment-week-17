@@ -11,22 +11,27 @@ This is a simple HTTP server built in Go that provides endpoints for handling in
 
 ## Endpoints
 ### In-memory Data
+
 GET /in-memory?key=<key>: Retrieve the value associated with the specified key.
 POST /in-memory: Set a key-value pair in memory.
 
 ### MongoDB Data
+
 POST /fetch-data: Fetch records from a MongoDB collection based on specified criteria.
 
 ## Usage
 ### Set a key-value pair
+```
 curl -X POST -d '{"key":"example", "value":"data"}' http://localhost:3334/in-memory
-
+```
 ### Retrieve the value associated with a key
+```
 curl http://localhost:3334/in-memory?key=example
-
-###Fetch data from MongoDB
+```
+### Fetch data from MongoDB
+```
 curl -X POST -d '{"startDate":"2022-01-01", "endDate":"2022-01-31", "minCount":10, "maxCount":100}' http://localhost:3334/fetch-data
-
+```
 ## Setup
 make
 
